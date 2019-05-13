@@ -34,20 +34,20 @@ const tree = {
         },
     },
 };
-const dfs = require('../src/dfs');
+const bfs = require('../src/bfs');
 
 
-test('test dfs', () => {
-    expect(dfs(tree, true)).toEqual(
+test('test bfs', () => {
+    expect(bfs(tree, true)).toEqual(
         [
             [1],
             [1, 9],
+            [1, 8],
             [1, 9, 7],
+            [1, 9, 6],
+            [1, 8, 18],
             [1, 9, 7, 12],
             [1, 9, 7, 3],
-            [1, 9, 6],
-            [1, 8],
-            [1, 8, 18],
             [1, 8, 18, 16],
             [1, 8, 18, 4],
             [1, 8, 18, 4, 14],
@@ -55,11 +55,11 @@ test('test dfs', () => {
         ]
     )
 
-    expect(dfs(tree, false)).toEqual(
+    expect(bfs(tree, false)).toEqual(
         [
+            [1, 9, 6],
             [1, 9, 7, 12],
             [1, 9, 7, 3],
-            [1, 9, 6],
             [1, 8, 18, 16],
             [1, 8, 18, 4, 14],
             [1, 8, 18, 4, 2]

@@ -1,18 +1,77 @@
-function dfs(node, flag) {
-    function read(node, path, total) {
-        if (node) {
-            path.push(node.value);
-            if (flag || !flag && !node.left && !node.left) {
-                total.push(path);
+function bfs(node, flag) {
+    function read(queue, tree) {
+        while (queue.length) {
+            const {node, path} = queue.shift();
+            const {left, right, value} = node;
+            path.push(value)
+            if (flag || !flag && !left && !right) {
+                tree.push(path);
             }
-            read(node.left, [...path], total);
-            read(node.right, [...path], total);
+
+            if (left) {
+                queue.push({
+                    node: left,
+                    path: [...path]
+                })
+            }
+
+            if (right) {
+                queue.push({
+                    node: right,
+                    path: [...path]
+                })
+            }
         }
+        return tree
     }
+
     const t = [];
     const p = [];
-    read(node, p, t);
+    const q = [{
+        node,
+        path: p
+    }];
+    read(q, t);
     return t;
 }
 
-module.exports = dfs;
+const root = {
+    value: 1,
+    left: {
+        value: 9,
+        left: {
+            value: 7,
+            left: {
+                value: 12,
+            },
+            right: {
+                value: 3,
+            }
+        },
+        right: {
+            value: 6,
+        }
+    },
+    right: {
+        value: 8,
+        left: {
+            value: 18,
+            left: {
+                value: 16,
+            },
+            right: {
+                value: 4,
+                left: {
+                    value: 14,
+                },
+                right: {
+                    value: 2,
+                }
+            }
+        },
+    },
+};
+
+console.log(bfs(root, false));
+
+module.exports = bfs;
