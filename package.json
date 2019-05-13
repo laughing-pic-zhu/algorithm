@@ -1,0 +1,17 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "简单算法汇总",
+  "main": "bubbling.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "laughing-pic-zhu",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
