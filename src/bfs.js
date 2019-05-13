@@ -1,16 +1,14 @@
 function dfs(node, flag) {
     function read(node, path, total) {
         if (node) {
-            const {value, left, right} = node;
-            path.push(value);
-            if (flag || !flag && !left && !right) {
+            path.push(node.value);
+            if (flag || !flag && !node.left && !node.left) {
                 total.push(path);
             }
-            read(left, [...path], total);
-            read(right, [...path], total);
+            read(node.left, [...path], total);
+            read(node.right, [...path], total);
         }
     }
-
     const t = [];
     const p = [];
     read(node, p, t);
