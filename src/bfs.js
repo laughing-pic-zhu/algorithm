@@ -35,43 +35,4 @@ function bfs(node, flag) {
     return t;
 }
 
-const root = {
-    value: 1,
-    left: {
-        value: 9,
-        left: {
-            value: 7,
-            left: {
-                value: 12,
-            },
-            right: {
-                value: 3,
-            }
-        },
-        right: {
-            value: 6,
-        }
-    },
-    right: {
-        value: 8,
-        left: {
-            value: 18,
-            left: {
-                value: 16,
-            },
-            right: {
-                value: 4,
-                left: {
-                    value: 14,
-                },
-                right: {
-                    value: 2,
-                }
-            }
-        },
-    },
-};
-
-console.log(bfs(root, false));
-
 module.exports = bfs;

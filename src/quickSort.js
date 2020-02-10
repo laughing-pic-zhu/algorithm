@@ -9,7 +9,7 @@ function quickSort(array) {
                 j--;
             }
             arr[i] = arr[j];
-            while (i < j && arr[i] < key) {
+            while (i < j && arr[i] <= key) {
                 i++;
             }
             arr[j] = arr[i];
@@ -17,11 +17,10 @@ function quickSort(array) {
         arr[i] = key;
         sort(arr, left, i - 1);
         sort(arr, i + 1, right);
+        return arr;
     };
     const temp = [...array];
-    sort(temp);
-    return temp
+    return sort(temp);
 }
-
 
 module.exports = quickSort;
